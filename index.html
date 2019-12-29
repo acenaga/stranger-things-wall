@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Stranger Things</title>
+    
+    <link rel="stylesheet" href="css/estilos.css">
+    
+</head>
+<body>
+    <div class="logo">
+        <img src="img/stranger_things1.jpg" alt="Stranger things logo">
+    </div>
+    <div class="pared">
+        <img src="img/vacio.gif" alt="Stranger Things Light" id="letras">
+    </div>
+    
+    <audio src="sound/intro.mp3" autoplay loop></audio>
+    <audio id="grito" src="sound/grito.mp3"></audio>
+   
+   
+    <script>
+        
+        var img = document.getElementById("letras");
+        
+        var imgArray = [];
+        
+        for(i=65; i<91; i++){
+            imgArray[i-65] = new Image();
+            imgArray[i-65].src = "img/"+i+".gif";
+        }
+        
+        document.addEventListener("keydown",teclado);
+        document.addEventListener("keyup", reset);
+        
+        function teclado(evento){
+            var codigo = evento.keyCode;
+            if(codigo>64 && codigo<91){
+                img.src = imgArray[codigo-65].src;
+            }
+        }
+        
+        function reset (evento){
+            img.src = "img/vacio.gif";
+        }
+        
+        setTimeout(alerta, 5000);
+        
+        function alerta(){
+           //document.getElementById("grito").play();
+            
+        }
+        
+        
+    </script>
+    
+</body>
+</html>
